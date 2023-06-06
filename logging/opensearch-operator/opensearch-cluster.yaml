@@ -20,6 +20,15 @@ spec:
       limits:
         memory: "512Mi"
         cpu: "100m"
+    affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: hostname
+                    operator: In
+                    values:
+                      - oke-cp2kyidphiq-njtddg7kezq-snkqjdqu6iq-3
   nodePools:
     - component: masters
       replicas: 3

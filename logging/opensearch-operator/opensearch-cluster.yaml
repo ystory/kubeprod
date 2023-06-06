@@ -8,6 +8,8 @@ spec:
     httpPort: 9200
     vendor: opensearch
     serviceName: opensearch
+    additionalConfig:
+      compatibility.override_main_response_version: true
   dashboards:
     version: "2.7.0"
     enable: true

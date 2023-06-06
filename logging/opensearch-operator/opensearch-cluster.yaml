@@ -1,14 +1,14 @@
 apiVersion: opensearch.opster.io/v1
 kind: OpenSearchCluster
 metadata:
-  name: logging-cluster
+  name: opensearch
   namespace: kubeprod
 spec:
   general:
     version: "2.7.0"
     httpPort: 9200
     vendor: opensearch
-    serviceName: logging-cluster
+    serviceName: opensearch
   dashboards:
     version: "2.7.0"
     enable: true

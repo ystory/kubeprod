@@ -9,7 +9,7 @@ spec:
     vendor: opensearch
     serviceName: opensearch
     additionalConfig:
-      compatibility.override_main_response_version: true
+      compatibility.override_main_response_version: "true"
   dashboards:
     version: "2.7.0"
     enable: true

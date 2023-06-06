@@ -31,7 +31,7 @@ spec:
                       - oke-cp2kyidphiq-njtddg7kezq-snkqjdqu6iq-3
   nodePools:
     - component: masters
-      replicas: 3
+      replicas: 2
       diskSize: "10Gi"
       jvm: -Xmx1024M -Xms1024M
       nodeSelector:

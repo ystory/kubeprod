@@ -23,7 +23,7 @@ spec:
   nodePools:
     - component: masters
       replicas: 3
-      diskSize: "10"
+      diskSize: "10Gi"
       jvm: -Xmx1024M -Xms1024M
       nodeSelector:
       resources:

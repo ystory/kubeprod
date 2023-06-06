@@ -34,13 +34,13 @@ data:
       - add_cloud_metadata:
       - add_host_metadata:
 
-    cloud.id: ${ELASTIC_CLOUD_ID}
-    cloud.auth: ${ELASTIC_CLOUD_AUTH}
+    # cloud.id: ${ELASTIC_CLOUD_ID}
+    # cloud.auth: ${ELASTIC_CLOUD_AUTH}
 
     output.elasticsearch:
       hosts: [ '${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}' ]
-      username: ${ELASTICSEARCH_USERNAME}
-      password: ${ELASTICSEARCH_PASSWORD}
+      # username: ${ELASTICSEARCH_USERNAME}
+      # password: ${ELASTICSEARCH_PASSWORD}
 ---
 apiVersion: apps/v1
 kind: DaemonSet
@@ -71,7 +71,7 @@ spec:
           ]
           env:
             - name: ELASTICSEARCH_HOST
-              value: elasticsearch
+              value: opensearch.opensearch.svc.cluster.local
             - name: ELASTICSEARCH_PORT
               value: "9200"
             - name: ELASTICSEARCH_USERNAME
@@ -79,9 +79,9 @@ spec:
             - name: ELASTICSEARCH_PASSWORD
               value: changeme
             - name: ELASTIC_CLOUD_ID
-              value:
+              value: elastic
             - name: ELASTIC_CLOUD_AUTH
-              value:
+              value: changeme
             - name: NODE_NAME
               valueFrom:
                 fieldRef:
@@ -92,10 +92,11 @@ spec:
             #privileged: true
           resources:
             limits:
+              cpu: 200m
               memory: 200Mi
             requests:
-              cpu: 100m
-              memory: 100Mi
+              cpu: 200m
+              memory: 200Mi
           volumeMounts:
             - name: config
               mountPath: /etc/filebeat.yml

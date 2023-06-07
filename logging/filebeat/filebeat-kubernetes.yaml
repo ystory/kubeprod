@@ -65,7 +65,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: filebeat
-          image: ystory/filebeat-oss2:7.12.1
+          image: ystory/filebeat-oss:7.12.0
           args: [
             "-c", "/etc/filebeat.yml",
             "-e",
